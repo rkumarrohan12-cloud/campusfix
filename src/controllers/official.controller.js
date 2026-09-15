@@ -1,4 +1,4 @@
-const { pool } = require('../config/db');
+import { pool } from '../config/db.js';
 
 async function getOverallStats(req, res) {
   try {
@@ -41,4 +41,4 @@ async function getMisconductQueue(req, res) {
   }
 }
 
-module.exports = { getOverallStats, getDepartmentPerformance, getMisconductQueue };
+export { getOverallStats, getDepartmentPerformance, getMisconductQueue };

@@ -1,6 +1,6 @@
-const { Pool } = require('pg');
+import { Pool } from 'pg';
 
-const pool = new Pool({
+export const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
 });
 
@@ -20,7 +20,7 @@ pool.on('error', (err) => {
  * Always use this (not the raw pool) for any query that touches
  * complaint_owner or students on behalf of a logged-in student.
  */
-async function withTransaction(fn, studentId = null) {
+export async function withTransaction(fn, studentId = null) {
   const client = await pool.connect();
   try {
     await client.query('BEGIN');
@@ -38,5 +38,3 @@ async function withTransaction(fn, studentId = null) {
     client.release();
   }
 }
-
-module.exports = { pool, withTransaction };

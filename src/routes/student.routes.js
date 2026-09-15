@@ -1,12 +1,12 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const { verifyToken } = require('../middleware/auth');
-const { upload } = require('../middleware/upload');
-const { createComplaint, getMyComplaints } = require('../controllers/student.controller');
+import { verifyToken } from '../middleware/auth.js';
+import { upload } from '../middleware/upload.js';
+import { createComplaint, getMyComplaints } from '../controllers/student.controller.js';
 
 router.use(verifyToken('student'));
 
 router.post('/complaints', upload.single('photo'), createComplaint);
 router.get('/complaints', getMyComplaints);
 
-module.exports = router;
+export default router;

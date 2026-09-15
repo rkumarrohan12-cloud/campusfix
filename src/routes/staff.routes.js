@@ -1,12 +1,12 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const { verifyToken } = require('../middleware/auth');
-const { upload } = require('../middleware/upload');
-const {
+import { verifyToken } from '../middleware/auth.js';
+import { upload } from '../middleware/upload.js';
+import {
   getDepartmentComplaints,
   updateStatus,
   uploadProgressPhoto,
-} = require('../controllers/staff.controller');
+} from '../controllers/staff.controller.js';
 
 router.use(verifyToken(['staff', 'hod']));
 
@@ -14,4 +14,4 @@ router.get('/complaints', getDepartmentComplaints);
 router.patch('/complaints/:complaint_id/status', updateStatus);
 router.post('/complaints/:complaint_id/photo', upload.single('photo'), uploadProgressPhoto);
 
-module.exports = router;
+export default router;

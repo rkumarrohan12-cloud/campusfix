@@ -1,4 +1,4 @@
-const { pool, withTransaction } = require('../config/db');
+import { pool, withTransaction } from '../config/db.js';
 
 async function createComplaint(req, res) {
   const { category_id, description, location } = req.body;
@@ -54,4 +54,4 @@ async function getMyComplaints(req, res) {
   }
 }
 
-module.exports = { createComplaint, getMyComplaints };
+export { createComplaint, getMyComplaints };

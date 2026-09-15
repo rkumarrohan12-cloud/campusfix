@@ -1,4 +1,4 @@
-const { pool } = require('../config/db');
+import { pool } from '../config/db.js';
 
 async function getDepartmentComplaints(req, res) {
   const { department_id } = req.user;
@@ -82,4 +82,4 @@ async function uploadProgressPhoto(req, res) {
   }
 }
 
-module.exports = { getDepartmentComplaints, updateStatus, uploadProgressPhoto };
+export { getDepartmentComplaints, updateStatus, uploadProgressPhoto };

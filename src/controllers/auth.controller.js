@@ -1,6 +1,6 @@
-const jwt = require('jsonwebtoken');
-const { pool } = require('../config/db');
-const { comparePassword } = require('../utils/hash');
+import jwt from 'jsonwebtoken';
+import { pool } from '../config/db.js';
+import { comparePassword } from '../utils/hash.js';
 
 async function studentLogin(req, res) {
   const { admission_number, password } = req.body;
@@ -105,4 +105,4 @@ async function officialLogin(req, res) {
   }
 }
 
-module.exports = { studentLogin, staffLogin, officialLogin };
+export { studentLogin, staffLogin, officialLogin };

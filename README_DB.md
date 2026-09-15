@@ -18,10 +18,12 @@ npm install
 ```
 
 ## 4. Set up environment variables
+You can store env values in a developer-local file named `.env.local` (preferred) or `.env`.
 ```bash
-cp .env.example .env
+# copy the example to a local env file
+cp .env.example .env.local
 ```
-Then edit `.env`:
+Then edit `.env.local` (or `.env`) and set:
 - `DATABASE_URL` - fill in the real password once you've created the app role (step 6)
 - `JWT_SECRET` - generate one:
   ```bash
@@ -38,7 +40,7 @@ Open `db/grants.sql`, change the placeholder password, then:
 ```bash
 psql -U postgres -d campusfix -f db/grants.sql
 ```
-Copy that same password into `DATABASE_URL` in `.env`.
+Copy that same password into `DATABASE_URL` in `.env.local` (or `.env`).
 
 **Important:** the app must connect as `campusfix_app`, never as `postgres`
 or any superuser - superusers bypass Row-Level Security automatically,

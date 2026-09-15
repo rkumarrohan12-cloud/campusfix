@@ -1,12 +1,16 @@
-const express = require('express');
-const cors = require('cors');
-const helmet = require('helmet');
-const path = require('path');
+import express from 'express';
+import cors from 'cors';
+import helmet from 'helmet';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const authRoutes = require('./routes/auth.routes');
-const studentRoutes = require('./routes/student.routes');
-const staffRoutes = require('./routes/staff.routes');
-const officialRoutes = require('./routes/official.routes');
+import authRoutes from './routes/auth.routes.js';
+import studentRoutes from './routes/student.routes.js';
+import staffRoutes from './routes/staff.routes.js';
+import officialRoutes from './routes/official.routes.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
@@ -29,4 +33,4 @@ app.use((err, req, res, next) => {
   res.status(400).json({ error: err.message || 'Something went wrong' });
 });
 
-module.exports = app;
+export default app;

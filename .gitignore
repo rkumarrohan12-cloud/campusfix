@@ -29,3 +29,5 @@ dist/
 .env
 .env.local
 .DS_Store
+
+#ENV file must be ignored for security reasons. It contains sensitive information like database credentials and JWT secret keys.

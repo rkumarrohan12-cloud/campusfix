@@ -1,4 +1,4 @@
-const jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken';
 
 /**
  * verifyToken() - any logged-in user
@@ -33,4 +33,4 @@ function verifyToken(allowedRoles) {
   };
 }
 
-module.exports = { verifyToken };
+export { verifyToken };
